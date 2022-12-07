@@ -1,0 +1,48 @@
+
+#include <ESP8266WiFi.h>
+#include <BlynkSimpleEsp8266.h>
+
+
+
+char auth[] = "BLYNK CODE ON GMAIL";
+char ssid[] = "WIFI NAME";
+char pass[] = "WIFI PASSWORD";
+
+
+#define relay1 D7
+#define relay2 D8
+
+void setup() {
+ 
+  
+  pinMode(relay1, OUTPUT);
+  pinMode(relay2, OUTPUT);
+  digitalWrite(relay1, HIGH);
+  digitalWrite(relay2, HIGH);
+  Blynk.begin(auth, ssid, pass, "blynk.cloud", 80);
+  
+
+
+
+BLYNK_WRITE(V5) {
+ bool RelayOne = param.asInt();
+  if (RelayOne == 1) {
+    digitalWrite(relay1, LOW);
+  } else {
+    digitalWrite(relay1, HIGH);
+  }
+}
+
+
+BLYNK_WRITE(V6) {
+ bool RelayTwo = param.asInt();
+  if (RelayTwo == 1) {
+    digitalWrite(relay2, LOW);
+  } else {
+    digitalWrite(relay2, HIGH);
+  }
+}
+
+void loop() {
+  Blynk.run();
+}
