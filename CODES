@@ -9,8 +9,11 @@ char ssid[] = "WIFI NAME";
 char pass[] = "WIFI PASSWORD";
 
 
-#define relay1 D7
-#define relay2 D8
+#define relay1 D0
+#define relay2 D1
+#define relay3 D2
+#define relay4 D3
+
 
 void setup() {
  
@@ -19,6 +22,9 @@ void setup() {
   pinMode(relay2, OUTPUT);
   digitalWrite(relay1, HIGH);
   digitalWrite(relay2, HIGH);
+  digitalWrite(relay3, HIGH);
+  digitalWrite(relay4, HIGH);
+
   Blynk.begin(auth, ssid, pass, "blynk.cloud", 80);
   
 
