@@ -3,6 +3,11 @@
 #include <BlynkSimpleEsp8266.h>
 
 
+/*
+Auth Token received in Email at “YourAuthToken”
+WiFi Network Name at “YourNetworkName”
+WiFi Password at “YourPassword”
+*/
 
 char auth[] = "BLYNK CODE ON GMAIL";
 char ssid[] = "WIFI NAME";
